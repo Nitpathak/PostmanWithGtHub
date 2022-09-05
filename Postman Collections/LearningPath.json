@@ -149,7 +149,15 @@
 							"{",
 							"  pm.response.to.have.status(200);  ",
 							"  pm.response.to.have.jsonSchema(schema);",
-							"})"
+							"})",
+							"",
+							"pm.test(\"Validation the JSON response schema\", function()",
+							"{",
+							"  pm.response.to.have.status(200);  ",
+							"  pm.response.to.have.jsonSchema(schema);",
+							"})",
+							"",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -260,7 +268,7 @@
 	],
 	"variable": [
 		{
-			"id": "807eb1bf-5e6b-485c-801b-7a3f2e3481d5",
+			"id": "580bb05d-ec56-415b-b778-a4dfff45bacd",
 			"key": "BaseURL",
 			"value": "https://rahulshettyacademy.com"
 		}
