@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "88c9d387-5f7c-445f-8ae9-48f2a246e0c8",
+		"name": "LearningPath",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "397ac8cc-0ab1-47cb-8622-fbdb64422d82",
+						"exec": [
+							"",
+							"",
+							"const jsonData = pm.response.json()",
+							"pm.collectionVariables.set(\"studentID\", jsonData.ID);",
+							"//pm.collectionVariables.set(\"book_id\", bookId);",
+							"//pm.environment.set(\"book_id\", bookId);",
+							"",
+							"//TestCase01",
+							"pm.test(\"Validate response status code 200\", function()",
+							"{",
+							" pm.response.to.have.status(200);",
+							"})",
+							"",
+							"//TestCase02",
+							"pm.test(\"Validate Response Json Schema\", function()",
+							"{",
+							"pm.expect(jsonData).have.property(\"Msg\")",
+							"pm.expect(jsonData).have.property(\"ID\")",
+							"})",
+							"",
+							"//TestCase03",
+							"pm.test(\"Headers cookies validations\", function()",
+							"{",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json;charset=UTF-8\");",
+							"    ",
+							"})",
+							"",
+							"//TestCase04",
+							"pm.test(\"API ResponseTime validations\", function()",
+							"{",
+							"   pm.expect(pm.response.responseTime).to.be.below(1200);",
+							"   pm.expect(pm.response.text()).to.include(\"successfully added\");",
+							"",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "868f3398-8cd6-4714-a516-2763e250e8ce",
+						"exec": [
+							"",
+							"",
+							"//Nits Pre-request script",
+							"",
+							"console.log(pm.globals.get(\"studentCode\"));",
+							"const studentCode = pm.globals.get(\"studentCode\");",
+							"const studentRoll = pm.variables.replaceIn('{{$randomInt}}');",
+							"pm.collectionVariables.set(\"isbn\",studentCode + studentRoll );",
+							"",
+							"",
+							"// set author name beofore trigger this request",
+							"",
+							"pm.collectionVariables.set(\"author_name\", \"Nitin Pathak\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "db4978d9-c3c9-41fd-b9ad-fe1164d9bbcf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\":\"Learn Postman with Java Script\",\n   \"isbn\":\"{{isbn}}\",\n   \"aisle\":\"8983\",\n   \"author\":\"{{author_name}}\"\n   }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/Library/Addbook.php"
+			},
+			"response": []
+		},
+		{
+			"name": "GetBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9bfbd4b6-66fe-4b39-9c23-5db8f5d411f4",
+						"exec": [
+							"",
+							"const getBookResponse = pm.response.json();",
+							"const schema = {",
+							"  \"type\": \"array\",",
+							"  \"items\": [",
+							"    {",
+							"      \"type\": \"object\",",
+							"      \"properties\": {",
+							"        \"book_name\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"isbn\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"aisle\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"author\": {",
+							"          \"type\": \"string\"",
+							"        }",
+							"      },",
+							"      \"required\": [",
+							"        \"book_name\",",
+							"        \"isbn\",",
+							"        \"aisle\",",
+							"        \"author\"",
+							"      ]",
+							"    }",
+							"  ]",
+							"}",
+							"",
+							"pm.test(\"Validate the JSON response logic\", function()",
+							"{",
+							"console.log(getBookResponse);",
+							"pm.expect(getBookResponse[0].author).to.eql(pm.collectionVariables.get(\"author_name\"))",
+							"})",
+							"",
+							"pm.test(\"Validation the JSON response schema\", function()",
+							"{",
+							"  pm.response.to.have.status(200);  ",
+							"  pm.response.to.have.jsonSchema(schema);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "29ef8549-d81e-430a-b88a-15b5e565b339",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/Library/GetBook.php?ID={{studentID}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"Library",
+						"GetBook.php"
+					],
+					"query": [
+						{
+							"key": "ID",
+							"value": "{{studentID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb2cc3c6-bb81-47f5-bc6d-68f071119bb0",
+						"exec": [
+							"",
+							"const schema = {",
+							"  \"type\": \"object\",",
+							"  \"properties\": {",
+							"    \"msg\": {",
+							"      \"type\": \"string\"",
+							"    }",
+							"  },",
+							"  \"required\": [",
+							"    \"msg\"",
+							"  ]",
+							"}",
+							"",
+							"pm.test(\"Verify the status code and schema\", function()",
+							"{",
+							"  pm.response.to.have.status(200);  ",
+							"  pm.response.to.have.jsonSchema(schema);",
+							"",
+							"  const jsonData = pm.response.json();",
+							"  pm.expect(jsonData.msg).to.eql(\"book is successfully deleted\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "884ea22b-3315-4a9b-b230-99bb8ff00ffd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ID\": \"{{studentID}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/Library/DeleteBook.php"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5712a454-ab64-4641-ae45-ac34ff637cef",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b5229c74-7524-4c35-baa5-d89d161a341e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "121250e7-32e3-4b7f-9150-bd8b1544a317",
+			"key": "BaseURL",
+			"value": "https://rahulshettyacademy.com",
+			"type": "string"
+		}
+	]
+}
