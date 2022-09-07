@@ -26,6 +26,12 @@
 							" pm.response.to.have.status(200);",
 							"})",
 							"",
+							"//TestCase01",
+							"pm.test(\"Validate response status code 200\", function()",
+							"{",
+							" pm.response.to.have.status(200);",
+							"})",
+							"",
 							"//TestCase02",
 							"pm.test(\"Validate Response Json Schema\", function()",
 							"{",
@@ -274,7 +280,7 @@
 	],
 	"variable": [
 		{
-			"id": "3b3c7425-566d-4127-93dc-7ac26041badd",
+			"id": "ac174658-9083-45d6-9c9b-6bcd55eb817f",
 			"key": "BaseURL",
 			"value": "https://rahulshettyacademy.com"
 		}
