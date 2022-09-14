@@ -32,6 +32,12 @@
 							" pm.response.to.have.status(200);",
 							"})",
 							"",
+							"//TestCase01",
+							"pm.test(\"Validate response status code 200\", function()",
+							"{",
+							" pm.response.to.have.status(200);",
+							"})",
+							"",
 							"//TestCase02",
 							"pm.test(\"Validate Response Json Schema\", function()",
 							"{",
@@ -86,7 +92,7 @@
 					}
 				}
 			],
-			"id": "db4978d9-c3c9-41fd-b9ad-fe1164d9bbcf",
+			"_postman_id": "db4978d9-c3c9-41fd-b9ad-fe1164d9bbcf",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -175,7 +181,7 @@
 					}
 				}
 			],
-			"id": "29ef8549-d81e-430a-b88a-15b5e565b339",
+			"_postman_id": "29ef8549-d81e-430a-b88a-15b5e565b339",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -235,7 +241,7 @@
 					}
 				}
 			],
-			"id": "884ea22b-3315-4a9b-b230-99bb8ff00ffd",
+			"_postman_id": "884ea22b-3315-4a9b-b230-99bb8ff00ffd",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -280,9 +286,10 @@
 	],
 	"variable": [
 		{
-			"id": "ac174658-9083-45d6-9c9b-6bcd55eb817f",
+			"id": "a4d248bd-5ea8-46fb-a26a-3b2f5f11b10a",
 			"key": "BaseURL",
-			"value": "https://rahulshettyacademy.com"
+			"value": "https://rahulshettyacademy.com",
+			"type": "string"
 		}
 	]
 }
