@@ -92,7 +92,7 @@
 					}
 				}
 			],
-			"_postman_id": "db4978d9-c3c9-41fd-b9ad-fe1164d9bbcf",
+			"id": "db4978d9-c3c9-41fd-b9ad-fe1164d9bbcf",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -181,7 +181,7 @@
 					}
 				}
 			],
-			"_postman_id": "29ef8549-d81e-430a-b88a-15b5e565b339",
+			"id": "29ef8549-d81e-430a-b88a-15b5e565b339",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -241,7 +241,7 @@
 					}
 				}
 			],
-			"_postman_id": "884ea22b-3315-4a9b-b230-99bb8ff00ffd",
+			"id": "884ea22b-3315-4a9b-b230-99bb8ff00ffd",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -286,10 +286,24 @@
 	],
 	"variable": [
 		{
-			"id": "a4d248bd-5ea8-46fb-a26a-3b2f5f11b10a",
+			"id": "11bdd61e-4b43-4818-8854-bf955c4cefce",
 			"key": "BaseURL",
-			"value": "https://rahulshettyacademy.com",
-			"type": "string"
+			"value": "https://rahulshettyacademy.com"
+		},
+		{
+			"id": "7c5fdb2d-b883-4607-b12a-7f75b92129a2",
+			"key": "isbn",
+			"value": ""
+		},
+		{
+			"id": "e006127c-dc13-40bc-be0f-f0b1556ebc85",
+			"key": "author_name",
+			"value": ""
+		},
+		{
+			"id": "5374e5fe-d663-425c-a2b9-56642a7c1019",
+			"key": "studentID",
+			"value": ""
 		}
 	]
 }
