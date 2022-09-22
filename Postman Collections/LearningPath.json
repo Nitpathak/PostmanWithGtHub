@@ -286,23 +286,18 @@
 	],
 	"variable": [
 		{
-			"id": "11bdd61e-4b43-4818-8854-bf955c4cefce",
+			"id": "b52a9513-6935-4442-8bd5-5efa1cbc6b1f",
 			"key": "BaseURL",
 			"value": "https://rahulshettyacademy.com"
 		},
 		{
-			"id": "7c5fdb2d-b883-4607-b12a-7f75b92129a2",
+			"id": "322b3860-38ec-45c7-8b28-5c9668875abd",
 			"key": "isbn",
 			"value": ""
 		},
 		{
-			"id": "e006127c-dc13-40bc-be0f-f0b1556ebc85",
+			"id": "f712b6da-2e15-4c02-b8d0-887b9b813eed",
 			"key": "author_name",
-			"value": ""
-		},
-		{
-			"id": "5374e5fe-d663-425c-a2b9-56642a7c1019",
-			"key": "studentID",
 			"value": ""
 		}
 	]
