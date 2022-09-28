@@ -38,6 +38,12 @@
 							" pm.response.to.have.status(200);",
 							"})",
 							"",
+							"//TestCase01",
+							"pm.test(\"Validate response status code 200\", function()",
+							"{",
+							" pm.response.to.have.status(200);",
+							"})",
+							"",
 							"//TestCase02",
 							"pm.test(\"Validate Response Json Schema\", function()",
 							"{",
@@ -286,18 +292,23 @@
 	],
 	"variable": [
 		{
-			"id": "b52a9513-6935-4442-8bd5-5efa1cbc6b1f",
+			"id": "c8e57b7a-2ca3-4c3e-a8e3-b9f13b167267",
 			"key": "BaseURL",
 			"value": "https://rahulshettyacademy.com"
 		},
 		{
-			"id": "322b3860-38ec-45c7-8b28-5c9668875abd",
+			"id": "09de5922-88aa-4079-aa4a-a29e10648535",
 			"key": "isbn",
 			"value": ""
 		},
 		{
-			"id": "f712b6da-2e15-4c02-b8d0-887b9b813eed",
+			"id": "7525a04b-ca71-4f06-b4ac-0053e361417c",
 			"key": "author_name",
+			"value": ""
+		},
+		{
+			"id": "f6cbef49-0320-4225-8b9b-70e791e2aafa",
+			"key": "studentID",
 			"value": ""
 		}
 	]
